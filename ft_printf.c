@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:38:51 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/04 00:44:30 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/12 12:40:51 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	ft_printf(const char *str, ...)
 	//make smth with head, len;
 	len = make_result(&head); //Clears in it
 	va_end(args);
+	return (len);
 	return (len);
 }
