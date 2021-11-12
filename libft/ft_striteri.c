@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/10/08 22:19:23 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/10/16 18:13:19 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_header.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+/*
+** Applies the function f to each character of the
+** string passed as argument, and passing its index
+** as first argument. Each character is passed by
+** address to f to be modified if necessary
+*/
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	size_t	i;
+
+	if (s == NULL || f == NULL)
+		return ;
+	i = 0;
+	while (*s)
+		f(i++, s++);
 }

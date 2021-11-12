@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/10/29 14:38:51 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/11/12 15:56:31 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-int	main(int argc, char **argv)
+int	ft_printf(const char *str, ...)
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	t_list	*head;
+	int		len;
+
+	len = 0;
+	head = NULL;
+	va_list(args);
+	va_start(args, str);
+	if (parser((char *)str, &head))
+		return (ft_lstclear(&head));
+	//make smth with head, len;
+	if (data_to_list(&head, args))
+		return (ft_lstclear(&head));
+	len = make_result(&head); //Clears in it
+	va_end(args);
+	return (len);
 }

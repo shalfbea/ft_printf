@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/11/04 00:10:43 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/11/12 13:06:59 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-int	main(int argc, char **argv)
+void	parse_flags(char **str, t_list *cur)
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	char	not_end;
+
+	not_end = 1;
+	while (not_end)
+	{
+		if (**str == '-')
+			cur->minus_flag = 1;
+		else if (**str == '+')
+			cur->plus_flag = 1;
+		else if (**str == ' ')
+			cur->space_flag = 1;
+		else if (**str == '#')
+			cur->hash_flag = 1;
+		else if (**str == '0')
+			cur->zero_flag = 1;
+		else
+			not_end = 0;
+		(*str)++;
+	}
 }

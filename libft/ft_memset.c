@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/10/05 20:24:20 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/10/16 18:07:38 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_header.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+/*
+** DESCRIPTION
+**  The ft_memset() function writes len bytes of value c
+** 	(converted to an unsigned char) to the string b.
+**
+** RETURN VALUES
+**  The ft_memset() function returns its first argument.
+*/
+void	*ft_memset(void *b, int c, size_t len)
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	str = (char *) b;
+	while (i < len)
+	{
+		str[i] = (unsigned char) c;
+		++i;
+	}
+	return (b);
 }

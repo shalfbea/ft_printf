@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/11/04 00:37:40 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/11/12 15:03:21 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-int	main(int argc, char **argv)
+static int acceptable_args(char c)
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	if (c == 'c' ||c == 's' || c == 'p')
+		return (1);
+	if (c == 'd' ||c == 'i' || c == 'u')
+		return (1);
+	if (c == 'x' ||c == 'X' || c == '%')
+		return (1);
+	return (0);
+}
+
+int	parse_args(char **str, t_list *cur)
+{
+	if (!acceptable_args(**str))
+		return (1);
+	cur->type = **str;
+	(*str)++;
+	return (0);
 }

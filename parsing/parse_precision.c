@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   parse_precision.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/11/04 00:33:21 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/11/12 15:39:06 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_header.h"
 
-int	main(int argc, char **argv)
+void	parse_precision(char **str, t_list *cur)
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	int	p;
+
+	if (**str != '.')
+		return ;
+	(*str)++;
+	while (ft_isdigit(**str))
+	{
+		p = (p * 10) + (**str) - '0';
+		(*str)++;
+	}
+	cur->precision = p;
 }

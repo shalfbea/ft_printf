@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:45:49 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/10/05 20:17:52 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/10/16 16:27:29 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_header.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+/*
+** DESCRIPTION
+** The ft_bzero() function writes n zeroed bytes to the string s.
+** If n is zero, bzero() does nothing.
+*/
+void	ft_bzero(void *s, size_t n)
 {
-	(void) argc;
-	(void) argv;
-	ft_printf("kek%slol%c%%%%", "dik", 'a');
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	str = (char *) s;
+	while (i < n)
+	{
+		str[i] = '\0';
+		++i;
+	}
 }
