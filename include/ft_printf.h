@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_header.h                                 :+:      :+:    :+:   */
+/*   ft_printf.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:43:01 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:40:45 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:31:43 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_HEADER_H
-# define FT_PRINTF_HEADER_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 /*
 * To delete
@@ -64,5 +64,9 @@ int	parse_args(char **str, t_list *cur);
 // data_to_list.c
 int	data_to_list(t_list **head, va_list args);
 // converting.c
-char	*char_to_str(char c);
+char	*char_to_str(int c, t_list *cur);
+// itoa_base.c
+char	*ft_itoa_base(long long n, char *base_charset);
+
+char	*string_copy(const char *s1);
 #endif

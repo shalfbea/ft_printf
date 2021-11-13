@@ -6,11 +6,11 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:17:29 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 17:35:36 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_header.h"
+#include "ft_printf.h"
 
 /*
 ** Allocates (with malloc(3)) and returns a new

@@ -1,12 +1,12 @@
 NAME := libftprintf.a
 
-HEADER := include/ft_printf_header.h
+HEADER := include/ft_printf.h
 
 CC := clang
 
 TestingFlags := -fsanitize=address -g3
 
-FLAGS := -Wall -Werror -Wextra -I./include $(TestingFlags)
+FLAGS := -Wall -Werror -Wextra -I./include
 
 SRC_LIBFT_FILES = ft_strlen.c ft_strchr.c ft_strlcpy.c ft_strrchr.c ft_strncmp.c ft_strlcat.c ft_strnstr.c\
 			ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
@@ -18,7 +18,7 @@ SRC_LIBFT_FILES = ft_strlen.c ft_strchr.c ft_strlcpy.c ft_strrchr.c ft_strncmp.c
 			ft_putnbr_fd.c
 
 SRC_FILES = building_list/data_to_list.c building_list/list_utils.c \
-			building_list/converting.c \
+			building_list/converting.c building_list/itoa_base.c\
 			ft_printf_and_result/ft_printf.c ft_printf_and_result/resulting.c \
 			parsing/parse_args.c parsing/parse_flags.c parsing/parse_precision.c \
 			parsing/parse_width.c parsing/parsing.c

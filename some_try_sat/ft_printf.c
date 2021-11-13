@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/29 14:38:51 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/11/13 18:39:06 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/11/13 18:59:35 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,11 @@
 
 int	ft_printf(const char *str, ...)
 {
-	t_list	*head;
 	int		len;
 
-	len = 0;
-	head = NULL;
 	va_list(args);
 	va_start(args, str);
-	if (parser((char *)str, &head))
-		return (ft_lstclear(&head));
-	//make smth with head, len;
-	if (data_to_list(&head, args))
-		return (ft_lstclear(&head));
-	len = make_result(&head); //Clears in it
+	len = parser((char *)str, args);
 	va_end(args);
 	return (len);
 }

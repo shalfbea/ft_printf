@@ -5,61 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 23:26:06 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
+/*   Created: 2021/11/13 18:40:41 by shalfbea          #+#    #+#             */
+/*   Updated: 2021/11/13 19:12:37 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	parse_after_percent(char **str, t_list *cur)
+static int	parse_percent(char **str, int *i, va_list args)
 {
-	parse_flags(str, cur);
-	parse_width(str, cur);
-	parse_precision(str, cur);
-	if (parse_args(str, cur))
-		return (1);
-	//(*str) += 2;
-	return (0);
-}
+	int	outputed;
 
-int	parse_percent(char **str, t_list **cur, int *i)
-{
+	outputed = *i;
 	if (((*str)[*i]) == '%')
 	{
 		if (*i > 0)
-		{
-			if (add_part_of_string(*str, *i, cur))
-				return (1);
-		}
+			write(1, &str, *i);
 		(*str) += (*i);
-		//replace with real parcer
-		(*cur)->next = ft_lstnew(NULL, 0);
-		(*cur) = (*cur)->next;
-		parse_after_percent(str, *cur);
-		//*k = 0; //bad
+		outputed += parse_after_percent(str, *cur);
 		*i = -1;
 	}
-	return (0);
+	return (outputed);
 }
 
-int	parser(char *str, t_list **head)
+int	parser(char *str, va_list args)
 {
 	int	i;
-	t_list	*cur;
+	int total;
 
 	i = 0;
-	*head = ft_lstnew(NULL, 's');
-	if (!(*head))
-		return (1);
-	cur = (*head);
+	total = 0;
 	while (str[i])
 	{
-		if (parse_percent(&str, &cur, &i))
-			return (1);
+		total += parse_percent(&str, &i, args));
+		if (i == -2)
+			return (total);
 		++i;
 	}
 	if (i > 0)
-		add_part_of_string(str, i, &cur);
-	return (0);
+		total+=write(1, &str, i);
+	return (total);
 }

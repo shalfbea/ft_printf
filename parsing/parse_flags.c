@@ -6,11 +6,11 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 00:10:43 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 13:06:59 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_header.h"
+#include "ft_printf.h"
 
 void	parse_flags(char **str, t_list *cur)
 {

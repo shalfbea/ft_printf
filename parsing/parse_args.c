@@ -6,11 +6,11 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 00:37:40 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/12 15:03:21 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_header.h"
+#include "ft_printf.h"
 
 static int acceptable_args(char c)
 {
