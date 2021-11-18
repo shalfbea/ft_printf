@@ -37,7 +37,7 @@ typedef struct s_list
 	int				width;
 	int				precision;
 	int				length;
-	int 			minus_flag;
+	int				minus_flag;
 	int				plus_flag;
 	int				space_flag;
 	int				hash_flag;
@@ -46,27 +46,42 @@ typedef struct s_list
 }	t_list;
 
 int		ft_printf(const char *str, ...);
+// list utils
 t_list	*ft_lstnew(void *content, char type);
 int		add_part_of_string(char	*str, int k, t_list **cur);
 int		ft_lstclear(t_list **lst);
+//
 int		make_result(t_list **head);
 
 //parsing.c
-int	parser(char *str, t_list **head);
+int		parser(char *str, t_list **head);
 // parse_flags.c
-void parse_flags(char **str, t_list *cur);
+void 	parse_flags(char **str, t_list *cur);
 // parse_width.c
 void	parse_width(char **str, t_list *cur);
 // parse_precision.c
 void	parse_precision(char **str, t_list *cur);
 // parse_args.c
-int	parse_args(char **str, t_list *cur);
+int		parse_args(char **str, t_list *cur);
 // data_to_list.c
-int	data_to_list(t_list **head, va_list args);
+int		data_to_list(t_list **head, va_list args);
 // converting.c
 char	*char_to_str(int c, t_list *cur);
+char	*ft_printf_p_arg(long long s1);
+char	*string_copy(const char *s1);
 // itoa_base.c
 char	*ft_itoa_base(long long n, char *base_charset);
-
-char	*string_copy(const char *s1);
+// building.c
+int		flags_for_tens(t_list *cur, va_list args);
+int		hash_flag(t_list *cur);
+int		build_precision(t_list *cur);
+int		build_width(t_list *cur);
+void	get_back_sign(t_list *cur);
+// elemt_modify.c
+int		add_some_amount_to_result(t_list *cur, char left_or_right,
+			char space, int amount);
+int		add_to_result(t_list *cur, char left_or_right, char	*to_add);
+int		cut_result(t_list *cur, int new_size);
+# define LEFT 0
+# define RIGHT 1
 #endif

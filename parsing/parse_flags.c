@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 00:10:43 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/15 17:45:31 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	parse_flags(char **str, t_list *cur)
 	not_end = 1;
 	while (not_end)
 	{
+		(*str)++;
 		if (**str == '-')
 			cur->minus_flag = 1;
 		else if (**str == '+')
@@ -31,6 +32,5 @@ void	parse_flags(char **str, t_list *cur)
 			cur->zero_flag = 1;
 		else
 			not_end = 0;
-		(*str)++;
 	}
 }

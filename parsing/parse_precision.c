@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 00:33:21 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/16 18:01:40 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void	parse_precision(char **str, t_list *cur)
 	if (**str != '.')
 		return ;
 	(*str)++;
+	if (**str == '*')
+	{
+		cur->precision = -2;
+		(*str)++;
+		return ;
+	}
 	while (ft_isdigit(**str))
 	{
 		p = (p * 10) + (**str) - '0';

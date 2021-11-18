@@ -19,6 +19,7 @@ SRC_LIBFT_FILES = ft_strlen.c ft_strchr.c ft_strlcpy.c ft_strrchr.c ft_strncmp.c
 
 SRC_FILES = building_list/data_to_list.c building_list/list_utils.c \
 			building_list/converting.c building_list/itoa_base.c\
+			building_list/building.c building_list/element_modify.c\
 			ft_printf_and_result/ft_printf.c ft_printf_and_result/resulting.c \
 			parsing/parse_args.c parsing/parse_flags.c parsing/parse_precision.c \
 			parsing/parse_width.c parsing/parsing.c
@@ -32,6 +33,8 @@ all: $(NAME) $(OBJ) $(OBJ_LIBFT) $(HEADER)
 $(NAME) : $(OBJ) $(OBJ_LIBFT)
 	ar rcs $(NAME) $?
 
+bonus : $(NAME)
+
 %.o : %.c
 	gcc $(FLAGS) -c $< -o $@
 
@@ -39,9 +42,6 @@ testing : test
 
 test : $(NAME) test_main.c
 	$(CC) $(FLAGS) test_main.c $(NAME) -o test
-
-all_bonus :
-	ar rcs $(NAME) $?
 
 clean:
 	$(RM) $(OBJ) $(OBJ_LIBFT)
