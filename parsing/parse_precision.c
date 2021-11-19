@@ -6,11 +6,18 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 00:33:21 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/16 18:01:40 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/19 15:46:00 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_isdigit(int c)
+{
+	if ((c >= '0') && (c <= '9'))
+		return (1);
+	return (0);
+}
 
 void	parse_precision(char **str, t_list *cur)
 {

@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:38:51 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/13 16:43:26 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/19 15:20:00 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	if (parser((char *)str, &head))
 		return (ft_lstclear(&head));
-	//make smth with head, len;
 	if (data_to_list(&head, args))
 		return (ft_lstclear(&head));
-	len = make_result(&head); //Clears in it
+	len = make_result(&head);
 	va_end(args);
 	return (len);
 }
