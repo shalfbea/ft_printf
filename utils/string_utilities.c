@@ -6,13 +6,11 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 15:46:39 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/19 15:47:01 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/19 17:49:55 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-//для разных парсеров сделать файлы parse_numeric и parse flags_n_args
 
 char	*ft_strdup(const char *s1)
 {
@@ -98,6 +96,7 @@ size_t	ft_strlcpy(char *dst, const char *src,
 	dst[i] = '\0';
 	return (size_src);
 }
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -107,6 +106,7 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
 /*
 ** DESCRIPTION
 **  The ft_strncmp() function lexicographically compare the
@@ -124,6 +124,7 @@ size_t	ft_strlen(const char *s)
 **  The comparison is done using unsigned characters,
 **  so that `\200' is greater than `\0'.
 */
+/*
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
@@ -135,3 +136,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return ((int) 0);
 	return ((unsigned char)s1[i] - s2[i]);
 }
+*/

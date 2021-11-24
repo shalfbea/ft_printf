@@ -21,13 +21,14 @@
 /*
 * end to delete
 */
-# include "libft.h"
 
 # include <limits.h>
 # include <float.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+
+# include <string.h> //need it?
 
 typedef struct s_list
 {
@@ -51,12 +52,12 @@ t_list	*ft_lstnew(void *content, char type);
 int		add_part_of_string(char	*str, int k, t_list **cur);
 int		ft_lstclear(t_list **lst);
 //
-int		make_result(t_list **head);
+//int		make_result(t_list **head);
 
 //parsing.c
 int		parser(char *str, t_list **head);
 // parse_flags.c
-void 	parse_flags(char **str, t_list *cur);
+void	parse_flags(char **str, t_list *cur);
 // parse_width.c
 void	parse_width(char **str, t_list *cur);
 // parse_precision.c
@@ -66,7 +67,7 @@ int		parse_args(char **str, t_list *cur);
 // data_to_list.c
 int		data_to_list(t_list **head, va_list args);
 // converting.c
-char	*char_to_str(int c, t_list *cur);
+char	*char_to_str(int c);
 char	*ft_printf_p_arg(long long s1);
 char	*string_copy(const char *s1);
 // itoa_base.c
@@ -82,6 +83,16 @@ int		add_some_amount_to_result(t_list *cur, char left_or_right,
 			char space, int amount);
 int		add_to_result(t_list *cur, char left_or_right, char	*to_add);
 int		cut_result(t_list *cur, int new_size);
+
+//to do file for it
+size_t	ft_strlen(const char *s);
+int		ft_isdigit(int c);
+//int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char const *s1, char const *s2, size_t custom_len);
+char	*ft_itoa(int n);
+size_t	ft_strlcpy(char *dst, const char *src,
+			size_t dstsize);
 # define LEFT 0
 # define RIGHT 1
 #endif

@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:59:55 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/18 20:46:24 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/24 20:24:51 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	add_some_amount_to_result(t_list *cur, char left_or_right,
 	to_add[i] = '\0';
 	res = add_to_result(cur, left_or_right, to_add);
 	free(to_add);
+	cur->length = ft_strlen(cur->result);
 	return (res);
 }
 
@@ -55,12 +56,16 @@ int	cut_result(t_list *cur, int new_size)
 	char	*new_result;
 	int		i;
 
+	if (ft_strlen(cur->result) < (size_t) new_size)
+		return (0);
 	new_result = (char *) malloc (sizeof(char) * (new_size + 1));
 	if (!new_result)
 		return (1);
 	i = -1;
+	//while (++i < new_size)
 	while (++i < new_size)
 		new_result[i] = (cur->result)[i];
+	new_result[i] = '\0';
 	free(cur->result);
 	cur->result = new_result;
 	return (0);

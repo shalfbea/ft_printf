@@ -6,12 +6,13 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 23:26:06 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/19 15:21:09 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:46:18 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
 int	parse_after_percent(char **str, t_list *cur)
 {
 	parse_flags(str, cur);
@@ -19,9 +20,9 @@ int	parse_after_percent(char **str, t_list *cur)
 	parse_precision(str, cur);
 	if (parse_args(str, cur))
 		return (1);
-	//(*str) += 2;
 	return (0);
 }
+*/
 
 int	parse_percent(char **str, t_list **cur, int *i)
 {
@@ -35,7 +36,11 @@ int	parse_percent(char **str, t_list **cur, int *i)
 		(*str) += (*i);
 		(*cur)->next = ft_lstnew(NULL, 0);
 		(*cur) = (*cur)->next;
-		parse_after_percent(str, *cur);
+		parse_flags(str, *cur);
+		parse_width(str, *cur);
+		parse_precision(str, *cur);
+		if (parse_args(str, *cur))
+			return (1);
 		*i = -1;
 	}
 	return (0);
@@ -43,7 +48,7 @@ int	parse_percent(char **str, t_list **cur, int *i)
 
 int	parser(char *str, t_list **head)
 {
-	int	i;
+	int		i;
 	t_list	*cur;
 
 	i = 0;
