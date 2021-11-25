@@ -6,13 +6,13 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:11:11 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/24 20:34:21 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:53:53 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int flags_for_tens(t_list *cur, va_list args)
+int	flags_for_tens(t_list *cur, va_list args)
 {
 	(void) args;
 	if ((cur->type != 'd') && (cur->type != 'i') && (cur->type != 'u'))
@@ -24,7 +24,7 @@ int flags_for_tens(t_list *cur, va_list args)
 	return (0);
 }
 
-int hash_flag(t_list *cur)
+int	hash_flag(t_list *cur)
 {
 	if (cur->hash_flag == 0 || cur->type == 'c' || cur->type == 's')
 		return (0);
@@ -47,7 +47,8 @@ int	build_precision(t_list *cur)
 		return (0);
 	if (cur->type == 's')
 		return (cut_result(cur, cur->precision));
-	if ((ft_strlen(cur->result) == 1) && (cur->result)[0] == '0' && cur->precision == 0)
+	if ((ft_strlen(cur->result) == 1) && (cur->result[0]) == '0'
+		&& cur->precision == 0)
 	{
 		free(cur->result);
 		cur->result = ft_strdup("");
@@ -75,7 +76,7 @@ void	get_back_sign(t_list *cur)
 		return ;
 	s = cur->result;
 	head = s;
-	while(*s == '0')
+	while (*s == '0')
 		++s;
 	if (*s == '-' && (s != head))
 	{
@@ -92,19 +93,14 @@ int	build_width(t_list *cur)
 	if (cur->width <= 0)
 		return (0);
 	space_char = ' ';
-	//if (cur->zero_flag && (cur->precision < 0))
 	if (cur->zero_flag)
 		return (0);
-		//space_char = '0';
 	if (cur->type == 'c')
 		missing_size = (cur->width) - 1;
 	else
 		missing_size = (cur->width) - ft_strlen(cur->result);
-	/*
-	if ((cur->result)[0] == '-')
-		missing_size++;
-	*/
 	if (missing_size > 0)
-		return (add_some_amount_to_result(cur, (cur->minus_flag), space_char, missing_size));
+		return (add_some_amount_to_result(cur, (cur->minus_flag),
+				space_char, missing_size));
 	return (0);
 }

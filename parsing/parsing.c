@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 23:26:06 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/24 18:46:18 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:02:42 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	parse_percent(char **str, t_list **cur, int *i)
 				return (1);
 		}
 		(*str) += (*i);
-		(*cur)->next = ft_lstnew(NULL, 0);
+		(*cur)->next = ft_lstnew(0);
 		(*cur) = (*cur)->next;
 		parse_flags(str, *cur);
 		parse_width(str, *cur);
@@ -52,7 +52,7 @@ int	parser(char *str, t_list **head)
 	t_list	*cur;
 
 	i = 0;
-	*head = ft_lstnew(NULL, 's');
+	*head = ft_lstnew('s');
 	if (!(*head))
 		return (1);
 	cur = (*head);
@@ -63,6 +63,9 @@ int	parser(char *str, t_list **head)
 		++i;
 	}
 	if (i > 0)
-		add_part_of_string(str, i, &cur);
+	{
+		if (add_part_of_string(str, i, &cur))
+			return (1);
+	}
 	return (0);
 }

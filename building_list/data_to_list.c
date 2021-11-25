@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:08:00 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/24 20:37:23 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:54:23 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	get_info_from_args(t_list *cur, va_list args)
 	if (cur->precision == -2)
 		cur->precision = va_arg(args, int);
 	if (cur->type == 's' || cur->type == 'c')
-		return;
+		return ;
 	if (cur->precision >= 0 || cur->minus_flag)
 		cur->zero_flag = 0;
 	if (cur->zero_flag && cur->precision <= 0)

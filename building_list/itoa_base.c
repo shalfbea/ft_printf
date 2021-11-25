@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:21:55 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/19 15:11:31 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:57:13 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static char	*ft_itoa_base_malloc(long long *n, long long *tens, int base)
 {
-	long long 		tmp;
-	long long 		len;
+	long long		tmp;
+	long long		len;
 	char			*res;
 	char			put_minus;
 
@@ -43,7 +43,7 @@ static char	*ft_itoa_base_malloc(long long *n, long long *tens, int base)
 
 char	*ft_itoa_base(long long n, char *base_charset)
 {
-	long long 		tens;
+	long long		tens;
 	char			*res;
 	char			*ret_res;
 	int				base;

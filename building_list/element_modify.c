@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:59:55 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/24 20:24:51 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:57:54 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int	cut_result(t_list *cur, int new_size)
 	if (!new_result)
 		return (1);
 	i = -1;
-	//while (++i < new_size)
 	while (++i < new_size)
 		new_result[i] = (cur->result)[i];
 	new_result[i] = '\0';

@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 17:37:04 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/19 18:15:56 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 14:54:11 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char	*ft_printf_p_arg(long long s1)
 		return (ft_strdup("0x7fffffffffffffff"));
 	else if (s1 == (long long) ULONG_MAX)
 		return (ft_strdup("0xffffffffffffffff"));
-	//else if (s1 == -ULONG_MAX)
-	//	return (ft_strdup("0x1"));
 	s2 = ft_itoa_base(s1, "0123456789abcdef");
 	if (!s2)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 00:33:21 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/24 18:51:35 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:03:11 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	parse_precision(char **str, t_list *cur)
 		(*str)++;
 		return ;
 	}
-	p = 0; //worked before without it, seems strange ?
+	p = 0;
 	while (ft_isdigit(**str))
 	{
 		p = (p * 10) + (**str) - '0';
@@ -45,7 +45,7 @@ void	parse_width(char **str, t_list *cur)
 {
 	int	w;
 
-	w = 0; // w = 0?
+	w = 0;
 	if (**str == '*')
 	{
 		cur->width = -2;

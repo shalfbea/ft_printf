@@ -19,14 +19,14 @@ SRC_FILES = building_list/data_to_list.c building_list/list_utils.c \
 OBJ = $(patsubst %.c, %.o, $(SRC_FILES))
 RM := rm -rf
 
-all: $(NAME) $(OBJ) $(HEADER)
+all: $(HEADER) $(NAME) $(OBJ)
 
 $(NAME) : $(OBJ)
 	ar rcs $(NAME) $?
 
 bonus : $(NAME)
 
-%.o : %.c
+%.o : %.c $(HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
 
 testing : test

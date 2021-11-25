@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:17:29 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/19 18:08:00 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:06:46 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@
 ** with the value of the parameter ’content’. The
 ** variable ’next’ is initialized to NULL.
 */
-t_list	*ft_lstnew(void *content, char type)
+t_list	*ft_lstnew(char type)
 {
 	t_list	*list;
 
 	list = malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
-	list->content = content;
 	list->next = NULL;
 	list->precision = -1;
 	list->result = NULL;
@@ -45,7 +44,7 @@ int	add_part_of_string(char	*str, int k, t_list **cur)
 	char	*tmp;
 	int		i;
 
-	(*cur)->next = ft_lstnew(NULL, 0);
+	(*cur)->next = ft_lstnew(0);
 	*cur = (*cur)->next;
 	if (!cur)
 		return (1);
@@ -72,8 +71,6 @@ static void	free_elem(t_list **list)
 	elem = *list;
 	if (elem == NULL)
 		return ;
-	if (elem->type == 's')
-		free(elem->content);
 	free(elem->result);
 	free(elem);
 	*list = NULL;
@@ -102,5 +99,3 @@ int	ft_lstclear(t_list **lst)
 	*lst = NULL;
 	return (0);
 }
-
-
