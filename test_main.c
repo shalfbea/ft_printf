@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:40:35 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/25 15:19:28 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/12/02 11:55:40 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	main(void)
 	char	*s;
 
 	s = "";
-	ft_printf("%##x", 42);
+	ft_printf("%+05d", 432);
 }

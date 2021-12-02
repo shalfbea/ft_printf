@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:08:00 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/25 14:54:23 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/12/02 12:23:32 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,8 @@ static void	get_info_from_args(t_list *cur, va_list args)
 	}
 }
 
-int	element_processing(t_list *cur, va_list args)
+static void	set_len(t_list *cur)
 {
-	if (cur->type == '.')
-		return (0);
-	get_info_from_args(cur, args);
-	if (build_as_type(cur, args))
-		return (1);
-	if (build_precision(cur))
-		return (1);
-	get_back_sign(cur);
-	if (flags_for_tens(cur, args))
-		return (1);
-	if (hash_flag(cur))
-		return (1);
-	if (build_width(cur))
-		return (1);
 	cur->length = ft_strlen(cur->result);
 	if (cur->type == 'c')
 	{
@@ -88,6 +74,33 @@ int	element_processing(t_list *cur, va_list args)
 			cur->width = 1;
 		cur->length = cur->width;
 	}
+}
+
+int	element_processing(t_list *cur, va_list args)
+{
+	int	it_s_not_zero;
+
+	it_s_not_zero = 1;
+	if (cur->type == '.')
+		return (0);
+	get_info_from_args(cur, args);
+	if (build_as_type(cur, args))
+		return (1);
+	if (cur->result[0] == '0')
+		it_s_not_zero = 0;
+	if (cur->space_flag && cur->result[0] == '-')
+		cur->space_flag = 0;
+	if (build_precision(cur))
+		return (1);
+	get_back_sign(cur);
+	if (flags_for_tens(cur, args))
+		return (1);
+	if (it_s_not_zero)
+		if (hash_flag(cur))
+			return (1);
+	if (build_width(cur))
+		return (1);
+	set_len(cur);
 	return (0);
 }
 

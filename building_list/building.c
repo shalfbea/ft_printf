@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:11:11 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/25 14:53:53 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/12/02 12:35:43 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,41 @@ int	flags_for_tens(t_list *cur, va_list args)
 		return (add_to_result(cur, LEFT, " "));
 	return (0);
 }
+/*
+int	hash_flag(t_list *cur)
+{
+	if (cur->hash_flag == 0 || cur->type == 'c' || cur->type == 's')
+		return (0);
+	//if ((cur->result)[0] == '0')
+	//&& ft_strlen(cur->result) == 1)
+	//	return (0);
+	if (cur->type == 'x')
+		return (add_to_result(cur, LEFT, "0x"));
+	if (cur->type == 'X')
+		return (add_to_result(cur, LEFT, "0X"));
+	return (0);
+}
+*/
 
 int	hash_flag(t_list *cur)
 {
 	if (cur->hash_flag == 0 || cur->type == 'c' || cur->type == 's')
 		return (0);
-	if ((cur->result)[0] == '0')
+	if ((cur->type != 'x') && (cur->type != 'X'))
 		return (0);
+	if (cur->zero_flag && cur->result[0] == '0')
+	{
+		if (cur->result[1] == '0')
+		{
+			(cur->result)[1] = cur->type;
+			return (0);
+		}
+		else
+		{
+			cur->result[0] = cur->type;
+			return (add_to_result(cur, LEFT, "0"));
+		}
+	}
 	if (cur->type == 'x')
 		return (add_to_result(cur, LEFT, "0x"));
 	if (cur->type == 'X')
@@ -41,9 +69,7 @@ int	build_precision(t_list *cur)
 {
 	int		missing_size;
 
-	if (cur->type == '%' && cur->zero_flag == 0)
-		return (0);
-	if (cur->precision < 0)
+	if ((cur->type == '%' && cur->zero_flag == 0) || cur->precision < 0)
 		return (0);
 	if (cur->type == 's')
 		return (cut_result(cur, cur->precision));
@@ -57,8 +83,10 @@ int	build_precision(t_list *cur)
 		|| cur->type == 'x' || cur->type == 'X' || cur->type == '%')
 	{
 		missing_size = (cur->precision) - ft_strlen(cur->result);
-		if ((cur->result)[0] == '-' && (cur->zero_flag == 0))
+		if (((cur->result)[0] == '-') && (cur->zero_flag == 0))
 			missing_size++;
+		if (cur->zero_flag && (cur->plus_flag || cur->space_flag))
+			missing_size -= 1;
 		if (missing_size > 0)
 			return (add_some_amount_to_result(cur, LEFT, '0', missing_size));
 	}
