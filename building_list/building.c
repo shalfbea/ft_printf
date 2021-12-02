@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:11:11 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/12/02 12:35:43 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:16:23 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,6 @@ int	flags_for_tens(t_list *cur, va_list args)
 		return (add_to_result(cur, LEFT, " "));
 	return (0);
 }
-/*
-int	hash_flag(t_list *cur)
-{
-	if (cur->hash_flag == 0 || cur->type == 'c' || cur->type == 's')
-		return (0);
-	//if ((cur->result)[0] == '0')
-	//&& ft_strlen(cur->result) == 1)
-	//	return (0);
-	if (cur->type == 'x')
-		return (add_to_result(cur, LEFT, "0x"));
-	if (cur->type == 'X')
-		return (add_to_result(cur, LEFT, "0X"));
-	return (0);
-}
-*/
 
 int	hash_flag(t_list *cur)
 {

@@ -23,16 +23,16 @@
 
 typedef struct s_list
 {
-	char			*result;
-	char			type;
-	int				width;
-	int				precision;
-	int				length;
-	int				minus_flag;
-	int				plus_flag;
-	int				space_flag;
-	int				hash_flag;
-	int				zero_flag;
+	char				*result;
+	char				type;
+	int					width;
+	int					precision;
+	int					length;
+	char				minus_flag;
+	char				plus_flag;
+	char				space_flag;
+	char				hash_flag;
+	char				zero_flag;
 	struct s_list	*next;
 }	t_list;
 
