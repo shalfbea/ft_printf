@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 14:43:01 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/13 16:31:43 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:09:48 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 # define FT_PRINTF_H
 
 # include <limits.h>
-# include <float.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
-
-# include <string.h> //need it?
 
 typedef struct s_list
 {
@@ -33,7 +30,7 @@ typedef struct s_list
 	char				space_flag;
 	char				hash_flag;
 	char				zero_flag;
-	struct s_list	*next;
+	struct s_list		*next;
 }	t_list;
 
 int		ft_printf(const char *str, ...);

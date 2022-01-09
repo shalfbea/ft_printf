@@ -6,7 +6,7 @@
 /*   By: shalfbea <shalfbea@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 16:21:55 by shalfbea          #+#    #+#             */
-/*   Updated: 2021/11/25 14:57:13 by shalfbea         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:54:35 by shalfbea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_itoa_base(long long n, char *base_charset)
 	char			*ret_res;
 	int				base;
 
-	base = strlen(base_charset);
+	base = ft_strlen(base_charset);
 	res = NULL;
 	res = ft_itoa_base_malloc(&n, &tens, base);
 	if (!res)
