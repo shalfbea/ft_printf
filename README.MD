@@ -49,3 +49,6 @@ The full task can be found here: [ft_printf_subject](https://github.com/shalfbea
 
 - Manage any combination of the following flags: "-", "0", "." and the field minimum width under all conversions.
 - Manage all the following flags: "#", " ", "+" (Yes, one of them is a space)
+
+### Evaluation result:
+<img width="1278" alt="ft_printf_evaluation_result" src="https://user-images.githubusercontent.com/92727363/187229317-4a8ae684-49f9-45d8-a8e1-831515810e6f.png">
