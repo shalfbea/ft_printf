@@ -4,7 +4,7 @@ Own realisation of c standart printf function
 
 ## About
 
-This project is part of program in School 21 (Ecole 42).
+This project is part of program in [School 21](https://21-school.ru/) ([Ecole 42](42.fr)).
 
 That's my own partial implementation of printf function.
 
