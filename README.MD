@@ -4,10 +4,8 @@ Own realisation of c standart printf function
 
 ## About
 
-This project is part of program in [School 21](https://21-school.ru/) ([Ecole 42](42.fr)).
-
-That's my own partial implementation of printf function.
-
+This project is part of program in [School 21](https://21-school.ru/) ([Ecole 42](42.fr)).  
+That's my own partial implementation of printf function.  
 The main goal of this project is to get deep inside of how
 does standart c functions works.
 
